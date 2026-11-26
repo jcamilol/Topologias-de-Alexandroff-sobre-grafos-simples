@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="830" height="520" viewBox="0 0 830 520">
+  <rect width="830" height="520" fill="#000000"/>
+  <g fill="#ffffff" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif">
+    <text x="415" y="85" font-size="34" font-weight="600">Topologías de Alexandroff sobre grafos simples</text>
+    <line x1="60" y1="112" x2="770" y2="112" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="415" y="170" font-size="18">Trabajo de grado elaborado por:</text>
+    <text x="415" y="197" font-size="19" font-weight="700">Juan Camilo Lozano Suárez</text>
+    <text x="415" y="250" font-size="18">Dirigido por:</text>
+    <text x="415" y="277" font-size="19" font-weight="700">Ibeth Marcela Rubio Perilla</text>
+    <text x="415" y="335" font-size="18">En este repositorio encuentras:</text>
+    <text x="415" y="368" font-size="18">•  Póster y diapositivas realizados para las jornadas de socialización.</text>
+    <text x="415" y="395" font-size="18">•  Códigos elaborados para la implementación computacional.</text>
+    <text x="415" y="452" font-size="18">Documento final disponible a partir del 17 de diciembre de 2026</text>
+    <text x="415" y="479" font-size="18">Correo de contacto: jclozanos@unal.edu.co</text>
+  </g>
+</svg>
