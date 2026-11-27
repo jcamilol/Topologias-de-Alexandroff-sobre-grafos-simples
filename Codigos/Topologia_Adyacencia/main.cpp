@@ -4,9 +4,9 @@
 
 std::vector<std::vector<bool>> leerMatriz(std::ifstream& file){ //Función para crear la matriz y llenarla con los datos del archivo. Toma una variable ifstream y retorna una matriz
    int n; //Crea la variable para guardar el tamaño de la matriz
-   file >> n; //Se lee el tamaño de la matriz, que siempre es el primer número del archivo "1.txt"
+   file >> n; //Se lee el tamaño de la matriz, que siempre es el primer número del archivo "1_Mat_Ady.txt"
    std::vector<std::vector<bool>> Mat_Ady(n, std::vector<bool>(n)); //Creamos una matriz de booleanos de tamaño nxn
-   for(int i=0; i<=n-1; i++){ //Se llena la matriz Mat_Ady con los datos de "1.txt"
+   for(int i=0; i<=n-1; i++){ //Se llena la matriz Mat_Ady con los datos de "1_Mat_Ady.txt"
       for(int j=0; j<=n-1; j++){
          bool valor;
          file >> valor;
@@ -60,7 +60,7 @@ void imprVecindadesMinimas(std::vector<std::vector<bool>> Mat_U){ //Esta funció
       std::cout << "U_{v_" << i+1 << "} = {";
       bool aux_coma = 0; //Usamos esta variable para ayudarnos a imprimir bien las comas que separan elementos del conjunto
       for(int j=0; j<=Mat_U.size()-1; j++){
-         if(Mat_U[i][j]){ //Si v_i y v_j están conectados, se imprime v_j
+         if(Mat_U[i][j]){ //Si v_j pertenece a U_{v_i}, se imprime v_j
             if(aux_coma){
                std::cout << ", ";
             }
@@ -143,7 +143,7 @@ std::vector<std::vector<bool>> sort(std::vector<std::vector<bool>> Mat_tau){
    for(int i=0; i<=m-1; i++){
       for(int j=i+1; j<=m-1; j++){
          if( ( (card(Mat_tau[i])!=0 && card(Mat_tau[j])!=0) && ( (card(Mat_tau[i])>card(Mat_tau[j])) || ( (card(Mat_tau[i]) == card(Mat_tau[j])) && pivSet(Mat_tau[i],Mat_tau[j])==1) ) )  ||  (card(Mat_tau[i])==0 && card(Mat_tau[j])!=0) ){ 
-            //Primero miramos si ambas filas son no nulas. Si |tau_i|>|tau_j| entonces se intercambian. Si |tau_i|=|tau_j| pero tau_j tiene menor orden horizontal que tau_j entonces se intercambian. Segundo miramos si tau_i es nula y tau_j no lo es; en dado caso intercambiamos las filas. Esto último hace que las filas vacías queden abajo.
+            //Primero miramos si ambas filas son no nulas. Si |tau_i|>|tau_j| entonces se intercambian. Si |tau_i|=|tau_j| pero tau_j tiene menor orden horizontal que tau_i entonces se intercambian. Segundo miramos si tau_i es nula y tau_j no lo es; en dado caso intercambiamos las filas. Esto último hace que las filas vacías queden abajo.
             std::vector<bool> temp = Mat_tau[i];
             Mat_tau[i] = Mat_tau[j];
             Mat_tau[j] = temp;
@@ -194,7 +194,7 @@ void imprAbiertos(std::vector<std::vector<bool>> Mat_tau){
 }
 
 int main(){
-   std::ifstream file("1_Mat_Ady.txt"); //Guarda la información de "1.txt" en la variable "file" de tipo ifstream
+   std::ifstream file("1_Mat_Ady.txt"); //Guarda la información de "1_Mat_Ady.txt" en la variable "file" de tipo ifstream
    
    std::vector<std::vector<bool>> Mat_Ady = leerMatriz(file); //Creamos la matriz de adyacencia llamando la función "leerMatriz" que toma como argumento la variable file
    std::vector<std::vector<bool>> Mat_U = llenarMatriz_U(Mat_Ady); //Llenamos Mat_U de nxn con la información de Mat_ady. En ella guardamos la información de los U_{v_i} mediante (Mat_U)_{i,j}=1 ssi v_j \in U_{v_i}
