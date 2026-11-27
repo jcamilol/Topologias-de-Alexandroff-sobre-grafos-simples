@@ -45,7 +45,7 @@ std::vector<bool> inter(std::vector<bool> vect1, std::vector<bool> vect2){ //Est
 std::vector<std::vector<bool>> llenarMatriz_U(std::vector<std::vector<bool>> Mat_Ady){
    std::vector<std::vector<bool>> Mat_U(Mat_Ady.size(), std::vector<bool>(Mat_Ady.size(),true));
    for(int i=0; i<=Mat_Ady.size()-1; i++){
-      for(int j=0; j<=Mat_Ady.size()-1; j++){ // Para cada i \in \{1,\dots, n\} se hace la intersección \bigcap_{v_j \in A_{v_i}} A_{v_j} variando j de 1 a n
+      for(int j=0; j<=Mat_Ady.size()-1; j++){ //Para cada i \in \{1,\dots, n\} se hace la intersección \bigcap_{v_j \in A_{v_i}} A_{v_j} variando j de 1 a n
          if(Mat_Ady[i][j]){
             Mat_U[i] = inter(Mat_U[i], Mat_Ady[j]);
          }
